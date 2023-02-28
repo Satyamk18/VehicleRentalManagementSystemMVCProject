@@ -1,0 +1,63 @@
+@model VehicleRentalManagementProject.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 style="text-align:center">Update @ViewBag.thisvehicle.ModelName's Information</h1>
+
+
+<hr />
+<div class="row">
+    <div class="mx-auto col-10 col-md-8 col-lg-6">
+
+        <form asp-action="EditConfirm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <p><b>Vehicle Id</b></p>
+                <input asp-for="VehicleId" class="form-control" readonly />
+                <span asp-validation-for="VehicleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p><b>Model Name</b></p>
+                <input asp-for="ModelName" class="form-control" />
+                <span asp-validation-for="ModelName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p><b>Registration Number</b></p>
+                <input asp-for="RegistrationNumber" class="form-control" />
+                <span asp-validation-for="RegistrationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p><b>Vehicle Type</b></p>
+                <input asp-for="VehicleType" class="form-control" />
+                <span asp-validation-for="VehicleType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p><b>Daily Rent</b></p>
+                <input asp-for="DailyRent" class="form-control" />
+                <span asp-validation-for="DailyRent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p><b>Availability</b></p>
+                <input asp-for="IsAvailable" class="form-control" />
+                <span asp-validation-for="IsAvailable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="text-center">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <button type="button" class="btn btn-secondary"><a asp-action="ShowVehicles" style="color:white">Cancel</a></button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

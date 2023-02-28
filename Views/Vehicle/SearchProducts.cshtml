@@ -1,0 +1,41 @@
+@model IEnumerable<VehicleRentalManagementProject.Models.Vehicle>;
+
+<h2> Search Results </h2>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Vehicle Model Name</th>
+        <th>Category</th>
+        <th>Daily Rent</th>
+        <th>Registration Number</th>
+        <th>Available</th>
+        <th>Know More</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        
+    </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        
+
+        <tr>
+            <td>@item.ModelName</td>
+            <td>@item.VehicleType</td>
+            <td>@item.DailyRent</td>
+            <td>@item.RegistrationNumber</td>
+           
+            
+            @if(item.IsAvailable == null || item.IsAvailable == false){
+                <td>NO</td>
+            }else{
+                <td>YES</td>
+            }
+        
+            <td><button type="button" class="btn btn-success"><a asp-action = "Detail" asp-route-id ="@item.VehicleId" style="color:white">KNOW MORE</a></button></td>
+            <td><button type="button" class="btn btn-outline-info"><a asp-action = "Edit" asp-route-id ="@item.VehicleId" style="color:black">EDIT</a></button></td>
+            <td><button type="button" class="btn btn-danger"><a asp-action = "delete" asp-route-id ="@item.VehicleId" style="color:white">DELETE</a></button></td>
+        </tr>
+    }
+</table>

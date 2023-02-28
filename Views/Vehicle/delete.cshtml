@@ -1,0 +1,28 @@
+@model VehicleRentalManagementProject.Models.Vehicle
+
+@{
+    ViewData["Title"] = "delete";
+}
+
+<h1></h1>
+
+<h3 style="text-align:center">Are you sure you want to delete @ViewBag.thisvehicle.ModelName ?</h3>
+<div>
+    <hr />
+
+        <p><b>Vehicle Id : </b>@ViewBag.thisvehicle.VehicleId</p>
+        <p><b>Vehicle Model Name : </b>@ViewBag.thisvehicle.ModelName</p>
+        <p><b>Vehicle Registration Number : </b>@ViewBag.thisvehicle.RegistrationNumber</p>
+        <p><b>Vehicle Daily Rent : </b>@ViewBag.thisvehicle.DailyRent</p>
+        <p><b>Vehicle Type : </b>@ViewBag.thisvehicle.VehicleType</p>
+        <p><b>Vehicle Availability : </b>@ViewBag.thisvehicle.IsAvailable</p>
+    
+    <form asp-action="ConfirmDelete" asp-route-id="@ViewBag.thisvehicle.VehicleId">
+        <div class="text-center">
+        <input type="submit" value="Delete" class="btn btn-danger" /> <br>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary"><a asp-action="ShowVehicles" style="color:white">Back to List</a></button>
+        </div>
+    </form>
+</div>

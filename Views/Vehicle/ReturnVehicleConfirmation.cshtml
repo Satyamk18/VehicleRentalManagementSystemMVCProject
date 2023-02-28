@@ -1,0 +1,28 @@
+@model VehicleRentalManagementProject.Models.TransactionVrm
+
+@{
+    ViewData["Title"] = "ReturnVehicleConfirmation";
+}
+
+<h1 style="text-align:center">Vehicle Return Confirmation</h1><br>
+
+<div>
+    <h5>Thanks For Returning Vehicle</h5>
+    <hr />
+
+    <p><b>Transaction Id : </b>@ViewBag.transaction.TransactionId</p>
+    <p><b>User Id : </b>@ViewBag.transaction.Userid</p>
+    <p><b>Vehicle Id : </b>@ViewBag.transaction.VehicleId</p>
+    <p><b>Rental Rate : </b>@ViewBag.transaction.RentalRate</p>
+    <p><b>Rental Start Date : </b>@ViewBag.transaction.RentalStartDate</p>
+    <p><b>Rental End Date : </b>@ViewBag.transaction.RentalEndDate</p>
+
+</div>
+<div>
+    <div class="text-center">
+        <button type="button" class="btn btn-primary"><a asp-action="GetReview" style="color:white">Give Review of the vehicle</a></button><br>
+        <br>
+        <button type="button" class="btn btn-danger"><a asp-action="ShowVehicles" style="color:white">Back to List</a></button>
+    </div>
+    
+</div>

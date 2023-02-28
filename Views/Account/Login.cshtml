@@ -1,0 +1,81 @@
+@model VehicleRentalManagementProject.Models.Customer
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2 style="text-align:center">Login</h2>
+
+<hr />
+<div class="container">
+   
+<div class="row">
+    <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+                <label asp-for="Userid" class="control-label" required></label>
+                <input asp-for="Userid" class="form-control" />
+                <span asp-validation-for="Userid" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Username" class="control-label" required></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label" required></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="text-center">
+                <input type="submit" value="Log In" class="btn btn-success" /><br>
+                <br>
+                <p>New User ? <a asp-action="Register">Sign Up</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+@* <div>
+    <p>New User ? <a asp-action="Register">Sign Up</a></p>
+</div> *@
+@* <div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@* <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div> *@

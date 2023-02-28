@@ -1,0 +1,44 @@
+@model IEnumerable<VehicleRentalManagementProject.Models.TransactionVrm>;
+
+<table class="table table-dark table-striped">
+    <tr>
+        <th>Transaction Id</th>
+        <th>Vehicle</th>
+        <th>Rented On</th>
+        <th>Returned On</th>
+        <th>Rent Paid</th>
+  
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.TransactionId</td>
+            <td>@item.VehicleId</td>
+            <td>@item.RentalStartDate</td>
+            @if(item.RentalEndDate == null){
+                <td style="color:red">Currently in Use</td>
+            }else{
+                <td>@item.RentalEndDate</td>
+            }
+
+            @if(item.RentalEndDate == null){
+                <td style="color:red">Vehicle currently in use</td>
+            }else{
+                <td>@item.RentalRate</td>
+            }
+            
+            @if(item.RentalEndDate == null){
+                <td><button type="button" class="btn btn-success">
+<a asp-action = "ReturnVehicleConfirmation" asp-controller = "Vehicle" asp-route-id ="@item.TransactionId" style="color:white">Return Vehicle</a></button></td>
+            }else{
+                <td></td>
+            }
+            
+           
+
+        
+           
+        </tr>
+    }
+</table>

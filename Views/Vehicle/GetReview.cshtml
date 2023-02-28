@@ -1,0 +1,46 @@
+@model VehicleRentalManagementProject.Models.Review
+
+@{
+    ViewData["Title"] = "GetReview";
+}
+
+<h1 style="text-align:center">Review your Experience!</h1>
+
+<hr />
+<div class="row">
+    <div class="mx-auto col-10 col-md-8 col-lg-6">
+        <form asp-action="ReviewSubmit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @* <div class="form-group">
+                <p>User Id</p>
+                <input asp-for="Userid" class="form-control" />
+                <span asp-validation-for="Userid" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <p>Vehicle Id</p>
+                <input asp-for="VehicleId" class="form-control" />
+                <span asp-validation-for="VehicleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p>Review</p>
+                <input asp-for="Review1" class="form-control" />
+                <span asp-validation-for="Review1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class ="text-center">
+                <input type="submit" value="Submit" class="btn btn-success" /><br>
+                <br>
+                <button type="button" class="btn btn-danger"><a asp-action="ShowVehicles" style="color:white">Back to List</a></button>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

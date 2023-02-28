@@ -1,0 +1,37 @@
+@model VehicleRentalManagementProject.Models.Vehicle
+
+
+
+@{
+    ViewData["Title"] = "Detail";
+    
+}
+
+
+<div>
+    <h3 style="text-align:center">Details of Vehicle</h3>
+    <br>
+    <p><b>Vehicle Id : </b>@ViewBag.thisvehicle.VehicleId</p>
+    <p><b>Vehicle Model Name : </b>@ViewBag.thisvehicle.ModelName</p>
+    <p><b>Vehicle Registration Number : </b>@ViewBag.thisvehicle.RegistrationNumber</p>
+    <p><b>Vehicle Daily Rent : </b>@ViewBag.thisvehicle.DailyRent</p>
+    <p><b>Vehicle Type : </b>@ViewBag.thisvehicle.VehicleType</p>
+    <p><b>Vehicle Availability : </b>@ViewBag.thisvehicle.IsAvailable</p>
+</div>
+<div class="mx-auto col-10 col-md-8 col-lg-6">
+<div div class="text-center"> 
+    <button type="button" class="btn btn-warning"><a asp-action="ShowReviews" asp-route-id ="@ViewBag.thisvehicle.VehicleId" style="color:white">See Reviews</a></button>
+
+    <br>
+    <br>
+    <button type="button" class="btn btn-success"><a asp-action = "ConfirmRentVehicle" asp-route-id ="@ViewBag.thisvehicle.VehicleId" style="color:white">Rent this Vehicle!</a></button>
+
+    <br>
+    <br>
+        <button type="button" class="btn btn-primary"><a asp-action="ShowVehicles" style="color:white">Back to List</a></button>
+
+    <br>
+</div>
+</div>
+
+

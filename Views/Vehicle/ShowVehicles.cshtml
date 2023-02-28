@@ -1,0 +1,61 @@
+@model IEnumerable<VehicleRentalManagementProject.Models.Vehicle>;
+    
+@{
+    
+}
+<h3 style="text-align:center">Choose your vehicle for Renting!</h3>
+<br>
+<div style="display:flex">
+<div><p><b>Search a vehicle &nbsp;</b></div>
+<div class="form-group"> 
+    <form asp-action="SearchProducts">
+    <input type=text name="keyword" id="keyword" >
+    <input type="submit" value="Search" class="btn btn-primary btn-sm" />
+</form>
+ 
+</div>
+</div>
+@* <button type="button" class="btn btn-primary btn-lg btn-block" style="color:green"><a asp-action = "Transactions" asp-controller = "Account" style="color:white">Your Rentals</a></button>
+<br>
+<br>
+<button type="button" class="btn btn-primary btn-lg btn-block" style="color:green"><a asp-action = "Create" style="color:white" >Add Your Vehicle!</a></button>
+<br>
+<br>
+<button type="button" class="btn btn-primary btn-lg btn-block" style="color:green"><a asp-action = "Create" style="color:white" >Choose vehicle for Rent!</a></button> *@
+<table class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Vehicle Model Name</th>
+        <th>Category</th>
+        <th>Daily Rent</th>
+        <th>Registration Number</th>
+        <th>Available</th>
+        <th>Know More</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        
+    </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        
+
+        <tr>
+            <td>@item.ModelName</td>
+            <td>@item.VehicleType</td>
+            <td>@item.DailyRent</td>
+            <td>@item.RegistrationNumber</td>
+           
+            
+            @if(item.IsAvailable == null || item.IsAvailable == false){
+                <td>NO</td>
+            }else{
+                <td>YES</td>
+            }
+        
+            <td><button type="button" class="btn btn-success"><a asp-action = "Detail" asp-route-id ="@item.VehicleId" style="color:white">KNOW MORE</a></button></td>
+            <td><button type="button" class="btn btn-outline-info"><a asp-action = "Edit" asp-route-id ="@item.VehicleId" style="color:black">EDIT</a></button></td>
+            <td><button type="button" class="btn btn-danger"><a asp-action = "delete" asp-route-id ="@item.VehicleId" style="color:white">DELETE</a></button></td>
+        </tr>
+    }
+</table>
